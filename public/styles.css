@@ -1,0 +1,22 @@
+body {
+    background-color: #0073ad;
+}
+
+h1 {
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20%;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#results {
+    justify-content: center;
+    align-content: center;
+}
