@@ -17,7 +17,8 @@ document.getElementById('movieForm').addEventListener('submit', async (e) => { /
 
         if (movie.poster_path) { // If movie has an image display it
             const poster = document.createElement('img');
-            poster.src = movie.poster_path;
+            poster.src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+            poster.alt = `${movie.title} Poster`; // error case for no image 
             poster.style.width = '200px';
             movieDiv.appendChild(poster);
         }
@@ -25,7 +26,7 @@ document.getElementById('movieForm').addEventListener('submit', async (e) => { /
         const description = document.createElement('p'); // Creates paragraph text for movie desc.
         description.textContent = movie.overview || 'No description available.'; // error case
         movieDiv.appendChild(description);
-        resultsDiv.appendChild(description)
+        resultsDiv.appendChild(movieDiv);
         });
 
     } else {
@@ -33,6 +34,6 @@ document.getElementById('movieForm').addEventListener('submit', async (e) => { /
     }
 });
 
-
+console.log(data.similarMovies);
 
 // resultsDiv.innerHTML += `<p>${movie.title} (Release Date: ${movie.release_date})</p>`; 
