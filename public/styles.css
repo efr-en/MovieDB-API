@@ -1,5 +1,6 @@
 body {
     background-color: #0073ad;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 h1 {
@@ -7,7 +8,7 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 10%;
+    margin-top: 5%;
 }
 
 form {
@@ -29,8 +30,9 @@ form {
     flex-direction: column;
     align-items: center;
     width: 200px;
+    border-radius: 10px;
     background-color: #f9f9f9;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.1);
     padding: 10px;
 }
 
