@@ -16,6 +16,39 @@ form {
     align-items: center;
 }
 
+#results {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
+}
+
+.movie-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+}
+
+.movie-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.movie-card h3 {
+    font-size: 1rem;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.movie-card p {
+    font-size: 0.9rem;
+    text-align: center;
+    color: #c3c3c3;
+}
+/* 
 #results div{
     display: flex;
     align-items: flex-start;
@@ -25,4 +58,4 @@ form {
 #results img {
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
+} */
