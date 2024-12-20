@@ -61,7 +61,15 @@ app.get('/similar', async (req, res) => {
         const similarData = await similarResponse.json();
         console.log('Similar Data:', similarData); // Log the similar movies data
 
-        res.json({ similarMovies: similarData.results });
+        res.json({ 
+            similarMovies: similarData.results.map(movie => ({
+            title: movie.title,
+            release_date: movie.release_date,
+            overview: movie.overview,
+            poster_path: movie.poster_path ? `https://image.tmdb.org/t/p/w500${movie.poster_path}` : null,
+        })) 
+    });
+
     } catch (error) {
         console.error('Error fetching data from TMDB:', error);
         res.status(500).json({ error: 'An error occurred while fetching data' });
@@ -81,7 +89,7 @@ app.listen(PORT, () => {
 
 
 
-
+// Duped code inc of code breakage above
 // const express = require('express');
 // const fetch = require('node-fetch');
 // const path = require('path');
