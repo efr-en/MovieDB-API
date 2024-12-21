@@ -6,6 +6,7 @@ const app = express(); // Initializes express
 const PORT = process.env.PORT || 3000; // Helps ensure hosting compatability and gives the hosting service a fallback port 
 const API_KEY = '0b1030e9e8b3906f01731b4f4f2fb4ac'; // My API key
 const BASE_URL = 'https://api.themoviedb.org/3'; // Base URL for API
+const ACCESS_TOKEN = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwYjEwMzBlOWU4YjM5MDZmMDE3MzFiNGY0ZjJmYjRhYyIsIm5iZiI6MTczNDM3MzE3NC41NjksInN1YiI6IjY3NjA2ZjM2ZjllZmIwMDk3MjIwNjY1MiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.iEVisOqUrtaV-7JBKsfqv5Z7RgFgN5_6-6d3jiBG2e4'
 
 // Function to fetch TMDB configuration, straight from TMDB Docs
 async function fetchTMDBConfiguration() {
@@ -14,7 +15,7 @@ async function fetchTMDBConfiguration() {
         method: 'GET', // HTTP method for request
         headers: {
             accept: 'application/json', 
-            Authorization: `Bearer ${API_KEY}` // Use your API key here
+            Authorization: `Bearer ${ACCESS_TOKEN}` // Use your API key here
         }
     };
 
