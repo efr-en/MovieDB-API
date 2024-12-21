@@ -1,9 +1,9 @@
 const express = require('express'); // Import express
-const fetch = global.fetch; // Import fetch to FETCH dapa from the TMDB API
+const fetch = global.fetch; // Import fetch to FETCH data from the TMDB API
 const path = require('path'); // Provides utils for working with file/directory paths - Node.js module 
 
 const app = express(); // Initializes express
-const PORT = process.env.PORT || 3000; //
+const PORT = process.env.PORT || 3000; // Helps ensure hosting compatability and gives the hosting service a fallback port 
 const API_KEY = '0b1030e9e8b3906f01731b4f4f2fb4ac'; // My API key
 const BASE_URL = 'https://api.themoviedb.org/3'; // Base URL for API
 
@@ -11,20 +11,20 @@ const BASE_URL = 'https://api.themoviedb.org/3'; // Base URL for API
 async function fetchTMDBConfiguration() {
     const url = 'https://api.themoviedb.org/3/configuration';
     const options = {
-        method: 'GET',
+        method: 'GET', // HTTP method for request
         headers: {
-            accept: 'application/json',
+            accept: 'application/json', 
             Authorization: `Bearer ${API_KEY}` // Use your API key here
         }
     };
 
     try {
         const response = await fetch(url, options);
-        const configData = await response.json();
+        const configData = await response.json(); // Parse's the JSON response.
         console.log('TMDB Configuration:', configData); // Log the configuration data
         return configData;
     } catch (error) {
-        console.error('Error fetching TMDB configuration:', error);
+        console.error('Error fetching TMDB configuration:', error); // Logs error case for fetch failure 
         return null;
     }
 }
@@ -80,63 +80,3 @@ app.get('/similar', async (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
-
-
-
-
-
-
-
-
-
-// Duped code inc of code breakage above
-// const express = require('express');
-// const fetch = require('node-fetch');
-// const path = require('path');
-
-// const app = express();
-// const PORT = process.env.PORT || 3000;
-// const API_KEY = '0b1030e9e8b3906f01731b4f4f2fb4ac'; // Replace with your TMDB API key
-// const BASE_URL = 'https://api.themoviedb.org/3';
-
-// // Serve static files from the public directory
-// app.use(express.static(path.join(__dirname, 'public')));
-
-// app.get('/similar', async (req, res) => {
-//     const movieName = req.query.movieName;
-//     if (!movieName) {
-//         return res.status(400).json({ error: 'Movie name is required' });
-//     }
-
-//     try {
-//         // Get movie ID
-//         const searchResponse = await fetch(`${BASE_URL}/search/movie?api_key=${API_KEY}&query=${encodeURIComponent(movieName)}`);
-//         const searchData = await searchResponse.json();
-//         console.log('Search Data:', searchData);
-//         const movies = searchData.results;
-
-//         if (movies.length === 0) {
-//             return res.json({ similarMovies: [] });
-//         }
-
-//         const movieId = movies[0].id;
-
-//         // Get similar movies
-//         const similarResponse = await fetch(`${BASE_URL}/movie/${movieId}/similar?api_key=${API_KEY}`);
-//         const similarData = await similarResponse.json();
-
-//         if (similarData.results.length === 0) {
-//             console.log('No similar movies found for movie ID:', movieId);
-//         }
-
-//         res.json({ similarMovies: similarData.results });
-//     } catch (error) {
-//         console.error('Error fetching data from TMDB:', error);
-//         res.status(500).json({ error: 'An error occurred while fetching data' });
-//     }
-// });
-
-// // Start the server
-// app.listen(PORT, () => {
-//     console.log(`Server is running on http://localhost:${PORT}`);
-// });
