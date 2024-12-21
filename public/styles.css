@@ -3,12 +3,19 @@ body {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
+#tmdbLogo {
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+    margin-top: 3%;
+}
+
 h1 {
     height: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 5%;
+    margin-top: 3%;
 }
 
 form {
@@ -54,3 +61,4 @@ form {
     text-align: center;
     color: #000000;
 }
+
