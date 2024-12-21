@@ -34,4 +34,4 @@ document.getElementById('movieForm').addEventListener('submit', async (e) => { /
     }
 });
 
-console.log(data.similarMovies);
+// console.log(data.similarMovies); used for error
